@@ -1,5 +1,5 @@
-const Readings = require("./readings-model");
-const Patients = require("./patients-model");
+const Readings = require("../models/readings-model");
+const Patients = require("../models/patients-model");
 
 
 const getAllReadings = async (req,res) => {

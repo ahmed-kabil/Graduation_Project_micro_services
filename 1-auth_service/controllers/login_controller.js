@@ -1,5 +1,5 @@
 
-const Login = require("./login-model")
+const Login = require("../models/login-model")
 const bcrypt = require("bcryptjs")
 const JWT = require("jsonwebtoken")
 

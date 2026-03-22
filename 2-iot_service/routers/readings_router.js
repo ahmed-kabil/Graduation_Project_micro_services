@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router();
-const controller = require("./readings_controller")
-const {verifyToken,  verify_A, verify_APND} = require("./verify_token.js")
+const controller = require("../controllers/readings_controller.js")
+const {verifyToken,  verify_A, verify_APND} = require("../middleware/verify_token.js")
 
 
 router.route("/")
