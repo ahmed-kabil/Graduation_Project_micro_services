@@ -6,11 +6,15 @@ const {Server} = require('socket.io')
 const socketHandeler = require('./sockets/socker_handler.js')
 require('dotenv').config();
 
+
+
+
+
 const url = process.env.DATABASE_URL ;
 
  
 const app = express();
-const port = 7030;
+const port = process.env.PORT || 7030;
 
 
 // Server + Socket.IO
@@ -18,17 +22,16 @@ const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 socketHandeler(io);
 
+
 // Middlewares
 app.use(cors());
 app.use(express.json()); // parse JSON bodies
 
 
 // Routers
-
 const conversations_Routes = require("./routers/conversations_router.js");
 const messages_Routes = require("./routers/messages_router.js");
 const appointments_Routes = require("./routers/appointments_router.js");
-
 
 app.use("/api/conversations", conversations_Routes);
 app.use("/api/messages", messages_Routes);
